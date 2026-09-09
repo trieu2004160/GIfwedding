@@ -18,14 +18,24 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "The F Lab - Wedding & Events Planner",
-  description: "Wedding & Events Planner",
+  title: "GIF Wedding Film",
+  description:
+    "GIF Wedding Film - Lưu giữ những khoảnh khắc đẹp nhất trong ngày cưới.",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" className={`${libreCaslonText.variable} ${inter.variable}`}>
-      <body className="font-sans text-brand-text bg-white antialiased">{children}</body>
+    <html
+      lang="vi"
+      className={`${libreCaslonText.variable} ${inter.variable}`}
+    >
+      <body className="font-sans text-brand-text bg-white antialiased">
+        {children}
+      </body>
     </html>
   );
 }

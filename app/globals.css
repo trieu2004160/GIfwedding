@@ -2,20 +2,129 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ================================
+   GLOBAL
+   ================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: #ffffff;
+  color: #111111;
+}
+
+/* ================================
+   TYPOGRAPHY
+   ================================ */
+
+.font-serif {
+  font-family: var(--font-serif), Georgia, serif;
+}
+
+.font-sans {
+  font-family: var(--font-sans), Arial, sans-serif;
+}
+
+.font-ui {
+  font-family: var(--font-sans), Arial, sans-serif;
+}
+
+/* ================================
+   TEXT
+   ================================ */
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
 }
 
-/* Diagonal grid clipping for Recent Works */
+/* ================================
+   SECTION
+   ================================ */
+
+.section {
+  position: relative;
+}
+
+.sectionLabel {
+  line-height: 1.4;
+}
+
+.sectionTitle {
+  letter-spacing: -0.02em;
+}
+
+/* ================================
+   BUTTON
+   ================================ */
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #d4af37;
+  color: #ffffff;
+
+  padding: 0.75rem 1.5rem;
+
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  border: 1px solid #d4af37;
+  border-radius: 9999px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease,
+    transform 300ms ease;
+}
+
+.btnPrimary:hover {
+  background: #b8941f;
+  border-color: #b8941f;
+  transform: translateY(-1px);
+}
+
+/* ================================
+   DIAGONAL GRID
+   ================================ */
+
 .diagonal-grid-container {
   transform: skewY(-5deg);
   overflow: hidden;
   margin: 4rem 0;
 }
+
 .diagonal-grid-inner {
   transform: skewY(5deg);
   display: grid;
   gap: 1rem;
+}
+
+/* ================================
+   SELECTION
+   ================================ */
+
+::selection {
+  background: #d4af37;
+  color: #ffffff;
+}
+
+/* ================================
+   MOBILE
+   ================================ */
+
+@media (max-width: 768px) {
+  .py-section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
 }
