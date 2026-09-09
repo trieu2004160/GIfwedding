@@ -1,0 +1,21 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Diagonal grid clipping for Recent Works */
+.diagonal-grid-container {
+  transform: skewY(-5deg);
+  overflow: hidden;
+  margin: 4rem 0;
+}
+.diagonal-grid-inner {
+  transform: skewY(5deg);
+  display: grid;
+  gap: 1rem;
+}
