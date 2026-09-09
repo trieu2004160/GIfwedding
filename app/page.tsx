@@ -14,9 +14,9 @@ const heroImages: HeroImage[] = [
     src: "https://cdn.prod.website-files.com/6576918dabe35789fb8cc666/65776219b7d42c9d3f198ae3_Mai-Nas-01.jpeg",
     alt: "Mai & Nas Wedding",
   },
-  { src: "/gallery_1.jpg",    alt: "Wedding floral arrangement" },
-  { src: "/gallery_2.jpg",    alt: "Bride and groom portrait" },
-  { src: "/gallery_3.jpg",    alt: "Wedding venue decoration" },
+  { src: "/gallery_1.jpg", alt: "Wedding floral arrangement" },
+  { src: "/gallery_2.jpg", alt: "Bride and groom portrait" },
+  { src: "/gallery_3.jpg", alt: "Wedding venue decoration" },
   { src: "/hero_wedding.jpg", alt: "Wedding couple celebration" },
 ];
 
@@ -46,7 +46,8 @@ export default function Home() {
 
       const rect = section.getBoundingClientRect();
       const viewportHeight = window.innerHeight;
-      const progress = (viewportHeight - rect.top) / (viewportHeight + rect.height);
+      const progress =
+        (viewportHeight - rect.top) / (viewportHeight + rect.height);
       const clamped = Math.min(Math.max(progress, 0), 1);
 
       rowRefs.current.forEach((row, index) => {
@@ -127,7 +128,6 @@ export default function Home() {
       <main className="pt-20">
         {/* ── Hero Section ── */}
         <section className="py-section text-center">
-
           {/* Centred text block */}
           <div className="px-4">
             <p className="text-xs font-semibold tracking-[0.2em] uppercase text-gray-500 mb-6">
@@ -137,7 +137,8 @@ export default function Home() {
               GIF Wedding Film
             </h1>
             <h2 className="font-serif text-3xl md:text-5xl italic text-gray-600 mb-8">
-              <span className="not-italic">your</span> Wedding &amp; Events Planner
+              <span className="not-italic">your</span> Wedding &amp; Events
+              Planner
             </h2>
             <a
               className="inline-block text-brand text-sm font-semibold uppercase tracking-wider border-b-2 border-brand pb-1 hover:text-brand-hover hover:border-brand-hover transition-colors mb-12"
@@ -173,16 +174,20 @@ export default function Home() {
               Click
               <svg
                 className="absolute -right-5 top-1 w-6 h-6 text-gray-300"
-                fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
               >
-                <path d="M14 5l7 7m0 0l-7 7m7-7H3"
-                  strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.2" />
+                <path
+                  d="M14 5l7 7m0 0l-7 7m7-7H3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="1.2"
+                />
               </svg>
             </div>
           </div>
-
         </section>
-
 
         <section className="py-section px-4 text-center bg-gray-50/50">
           <div className="max-w-3xl mx-auto mb-16">
@@ -248,7 +253,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section ref={recentSectionRef} id="Works" className="works-section relative overflow-hidden bg-[#eef1f5] py-20">
+        <section
+          ref={recentSectionRef}
+          id="Works"
+          className="works-section relative overflow-hidden bg-[#eef1f5] py-20"
+        >
           <div className="samples-container relative h-[680px] overflow-hidden">
             {[0, 1, 2, 3, 4, 5, 6, 7].map((rowIndex) => (
               <div
@@ -272,16 +281,40 @@ export default function Home() {
 
           <div className="content-wrapper full-height w-container pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
             <div className="works-center text-center">
-              <a href="#" className="works block font-serif text-[clamp(4rem,8vw,9rem)] leading-[0.9] text-white">Recent</a>
-              <a href="#" className="year block font-serif italic text-[clamp(3.5rem,7vw,8rem)] leading-[0.9] text-white">Works</a>
+              <a
+                href="#"
+                className="works block font-serif text-[clamp(4rem,8vw,9rem)] leading-[0.9] text-white"
+              >
+                Recent
+              </a>
+              <a
+                href="#"
+                className="year block font-serif italic text-[clamp(3.5rem,7vw,8rem)] leading-[0.9] text-white"
+              >
+                Works
+              </a>
             </div>
           </div>
 
-          <div className="curve-bg absolute bottom-6 right-0 z-20" data-w-id="911bf770-fab3-b175-b485-646b2ab7ee32">
+          <div
+            className="curve-bg absolute bottom-6 right-0 z-20"
+            data-w-id="911bf770-fab3-b175-b485-646b2ab7ee32"
+          >
             <div className="curve-text-container bg-white/90 backdrop-blur rounded-l-full py-3 pl-4 pr-8 flex items-center gap-4 shadow-xl border border-black/5">
-              <div className="hero-mini-pic w-12 h-12 rounded-full bg-cover bg-center border-2 border-white shadow-sm" style={{backgroundImage: 'url("https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=500&q=80")'}} />
+              <div
+                className="hero-mini-pic w-12 h-12 rounded-full bg-cover bg-center border-2 border-white shadow-sm"
+                style={{
+                  backgroundImage:
+                    'url("https://images.unsplash.com/photo-1520854221256-17451cc331bf?auto=format&fit=crop&w=500&q=80")',
+                }}
+              />
               <div className="curve-text-box">
-                <a href="/portfolio" className="mini-title-link text-sm font-semibold tracking-wider text-gray-900 uppercase">View all our Works</a>
+                <a
+                  href="/portfolio"
+                  className="mini-title-link text-sm font-semibold tracking-wider text-gray-900 uppercase"
+                >
+                  View all our Works
+                </a>
               </div>
             </div>
           </div>
