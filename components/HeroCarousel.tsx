@@ -15,8 +15,8 @@ interface HeroCarouselProps {
 // ─── Component ────────────────────────────────────────────────────────────
 export default function HeroCarousel({ images }: HeroCarouselProps) {
   const [startIndex, setStartIndex] = useState(0);
-  const [animating, setAnimating]   = useState(false);
-  const [direction, setDirection]   = useState<"left" | "right">("right");
+  const [animating, setAnimating] = useState(false);
+  const [direction, setDirection] = useState<"left" | "right">("right");
 
   const canNav = images.length > 4;
 
@@ -28,22 +28,23 @@ export default function HeroCarousel({ images }: HeroCarouselProps) {
       setStartIndex((prev) =>
         dir === "right"
           ? (prev + 1) % images.length
-          : (prev - 1 + images.length) % images.length
+          : (prev - 1 + images.length) % images.length,
       );
       setAnimating(false);
     }, 350);
   }
 
-  const visible = [0, 1, 2, 3].map((i) => images[(startIndex + i) % images.length]);
+  const visible = [0, 1, 2, 3].map(
+    (i) => images[(startIndex + i) % images.length],
+  );
 
   return (
     <div className="relative w-full">
-
       {/* ── Image strip ──────────────────────────────────────────────── */}
       <div
         className="flex items-start gap-2"
         style={{
-          opacity:   animating ? 0 : 1,
+          opacity: animating ? 0 : 1,
           transform: animating
             ? `translateX(${direction === "right" ? "-16px" : "16px"})`
             : "translateX(0)",
@@ -83,8 +84,19 @@ export default function HeroCarousel({ images }: HeroCarouselProps) {
           hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed
         `}
       >
-        <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-          <path d="M15 18l-6-6 6-6" strokeLinecap="round" strokeLinejoin="round" />
+        <svg
+          width="14"
+          height="14"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M15 18l-6-6 6-6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </button>
 
@@ -101,8 +113,19 @@ export default function HeroCarousel({ images }: HeroCarouselProps) {
           hover:bg-gray-50 disabled:opacity-30 disabled:cursor-not-allowed
         `}
       >
-        <svg width="14" height="14" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-          <path d="M9 18l6-6-6-6" strokeLinecap="round" strokeLinejoin="round" />
+        <svg
+          width="14"
+          height="14"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M9 18l6-6-6-6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
         </svg>
       </button>
 
@@ -112,7 +135,9 @@ export default function HeroCarousel({ images }: HeroCarouselProps) {
           {images.map((_, i) => (
             <button
               key={i}
-              onClick={() => { if (!animating) setStartIndex(i); }}
+              onClick={() => {
+                if (!animating) setStartIndex(i);
+              }}
               aria-label={`Go to image ${i + 1}`}
               className={`h-1.5 rounded-full border-none transition-all duration-300 ${
                 i === startIndex ? "w-4 bg-brand" : "w-1.5 bg-gray-300"

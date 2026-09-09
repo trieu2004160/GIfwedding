@@ -8,14 +8,88 @@
   }
 }
 
-/* Diagonal grid clipping for Recent Works */
-.diagonal-grid-container {
-  transform: skewY(-5deg);
-  overflow: hidden;
-  margin: 4rem 0;
+.works-section {
+  position: relative;
+  min-height: 900px;
 }
-.diagonal-grid-inner {
-  transform: skewY(5deg);
-  display: grid;
-  gap: 1rem;
+
+.samples-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 150vw;
+  height: 150vh;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+.sample-set {
+  position: relative;
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  padding: 0.75rem 0;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+
+/* Removed explicit top positions since we're using flex-direction: column */
+
+.sample-set-even {
+  transform: translate3d(-120px, 0, 0);
+}
+
+.sample-set-odd {
+  transform: translate3d(-260px, 0, 0);
+}
+
+.work-sample {
+  position: relative;
+  width: 250px;
+  height: 260px;
+  background-size: cover;
+  background-position: center;
+  background-color: #ddd;
+}
+
+.work-sample:nth-child(odd) {
+  /* removed scale */
+}
+
+.work-sample:nth-child(even) {
+  /* removed translateY */
+}
+
+@media (min-width: 768px) {
+  .work-sample {
+    width: 320px;
+    height: 380px;
+  }
+}
+
+/* Text and Curve classes removed as they are now using Tailwind in page.tsx */
+
+@media (max-width: 768px) {
+  .works-section {
+    min-height: 600px;
+  }
+
+  .samples-container {
+    width: 200vw;
+    height: 200vh;
+  }
+
+  .sample-set {
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .work-sample {
+    width: 180px;
+    height: 220px;
+  }
 }
