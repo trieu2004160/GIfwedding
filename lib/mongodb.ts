@@ -1,10 +1,15 @@
+
 import mongoose from "mongoose";
+import dns from "dns";
 
 const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
   throw new Error("MONGODB_URI is not defined in .env.local");
 }
+
+// Dùng Cloudflare DNS thay cho DNS local 127.0.0.1
+dns.setServers(["1.1.1.1"]);
 
 export async function connectDB() {
   try {
