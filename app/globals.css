@@ -2,9 +2,68 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ================================
-   GLOBAL
-   ================================ */
+
+/* =========================================================
+   GLOBAL UTILITIES
+   ========================================================= */
+
+@layer utilities {
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-brand {
+    color: #d4af37;
+  }
+
+  .text-brand-hover {
+    color: #b8941f;
+  }
+
+  .text-gold {
+    color: #d4af37;
+  }
+
+  .text-gold-light {
+    color: #ead98b;
+  }
+
+  .text-on-surface {
+    color: #111111;
+  }
+
+  .text-secondary {
+    color: #666666;
+  }
+
+  .text-tertiary {
+    color: #aaaaaa;
+  }
+
+  .bg-brand {
+    background-color: #d4af37;
+  }
+
+  .bg-on-surface {
+    background-color: #111111;
+  }
+
+  .border-brand {
+    border-color: #d4af37;
+  }
+
+  .py-section {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+
+}
+
+
+/* =========================================================
+   BASE
+   ========================================================= */
 
 html {
   scroll-behavior: smooth;
@@ -12,13 +71,10 @@ html {
 
 body {
   margin: 0;
+
   background: #ffffff;
   color: #111111;
 }
-
-/* ================================
-   TYPOGRAPHY
-   ================================ */
 
 .font-serif {
   font-family: var(--font-serif), Georgia, serif;
@@ -32,44 +88,603 @@ body {
   font-family: var(--font-sans), Arial, sans-serif;
 }
 
-/* ================================
-   TEXT
-   ================================ */
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.section {
+  position: relative;
 }
 
-/* Diagonal grid clipping for Recent Works */
+.sectionLabel {
+  line-height: 1.4;
+}
+
+.sectionTitle {
+  letter-spacing: -0.02em;
+}
+
+
+/* =========================================================
+   PRIMARY BUTTON
+   ========================================================= */
+
+.btnPrimary {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  background: #d4af37;
+  color: #ffffff;
+
+  padding: 0.75rem 1.5rem;
+
+  font-family: var(--font-sans), Arial, sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+
+  border: 1px solid #d4af37;
+  border-radius: 9999px;
+
+  cursor: pointer;
+
+  transition:
+    background-color 300ms ease,
+    border-color 300ms ease,
+    transform 300ms ease;
+}
+
+.btnPrimary:hover {
+  background: #b8941f;
+  border-color: #b8941f;
+
+  transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   HERO CAROUSEL
+   ========================================================= */
+
+.hero-concept {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 0.75rem;
+
+  align-items: start;
+
+  will-change: transform, opacity;
+}
+
+.hero-concept-enter {
+  opacity: 1;
+
+  transform: translateX(0);
+
+  transition:
+    opacity 900ms ease,
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-concept-exit {
+  opacity: 0;
+
+  transform: translateX(-45px);
+
+  transition:
+    opacity 700ms ease,
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-image-item {
+  position: relative;
+
+  width: 100%;
+  height: 360px;
+
+  overflow: hidden;
+}
+
+.hero-image-offset {
+  margin-top: 48px;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+  object-position: center;
+
+  transition:
+    transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.hero-image-item:hover .hero-image {
+  transform: scale(1.035);
+}
+
+
+/* =========================================================
+   HERO DOTS
+   ========================================================= */
+
+.hero-dots {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 0.5rem;
+
+  margin-top: 2rem;
+}
+
+.hero-dot {
+  width: 6px;
+  height: 6px;
+
+  padding: 0;
+
+  border: 0;
+  border-radius: 9999px;
+
+  background: #d1d1d1;
+
+  cursor: pointer;
+
+  transition:
+    width 400ms ease,
+    background-color 400ms ease;
+}
+
+.hero-dot-active {
+  width: 24px;
+
+  background: #d4af37;
+}
+
+
+/* =========================================================
+   RECENT WORKS
+   ========================================================= */
+
+.works-section {
+  position: relative;
+
+  min-height: 1050px;
+
+  overflow: hidden;
+
+  isolation: isolate;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   RECENT WORKS — HEADER
+   ========================================================= */
+
+.recent-works-header {
+  position: relative;
+
+  z-index: 30;
+
+  width: 100%;
+
+  text-align: center;
+
+  padding-top: 100px;
+  padding-bottom: 80px;
+
+  background: #ffffff;
+
+  isolation: isolate;
+}
+
+.recent-works-label {
+  margin: 0 0 20px;
+
+  color: #666666;
+
+  font-family:
+    var(--font-sans),
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+}
+
+.recent-works-title {
+  margin: 0;
+
+  color: #111111;
+
+  font-family:
+    var(--font-serif),
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: 40px;
+
+  font-weight: 300;
+
+  line-height: 1.1;
+
+  letter-spacing: -0.02em;
+}
+
+.recent-works-title em {
+  color: #d4af37;
+
+  font-style: italic;
+}
+
+
+/* =========================================================
+   RECENT WORKS — IMAGE CONTAINER
+   ========================================================= */
+
+.samples-container {
+  position: absolute;
+
+  top: 300px;
+  left: 50%;
+
+  width: 150vw;
+  height: 650px;
+
+  transform:
+    translateX(-50%)
+    rotate(-15deg);
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  z-index: 1;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   RECENT WORKS — ROW
+   ========================================================= */
+
+.sample-set {
+  position: relative;
+
+  display: flex;
+
+  gap: 1.5rem;
+
+  width: max-content;
+
+  padding: 0.75rem 0;
+
+  flex-shrink: 0;
+
+  will-change: transform;
+}
+
+
+/* =========================================================
+   RECENT WORKS — IMAGE
+   ========================================================= */
+
+.work-sample {
+  position: relative;
+
+  width: 320px;
+  height: 380px;
+
+  flex-shrink: 0;
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+
+  background-color: #dddddd;
+}
+
+
+/* =========================================================
+   RECENT WORKS — CTA
+   ========================================================= */
+
+.works-cta {
+  position: absolute;
+  z-index: 20;
+  right: 32px;
+  bottom: 32px;
+  left: auto;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  pointer-events: none;
+}
+
+.works-cta-card {
+  pointer-events: auto;
+
+  width: 260px;
+  padding: 1.25rem 1.4rem;
+
+  text-align: left;
+
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 30px rgba(0, 0, 0, 0.08);
+}
+
+/* Text */
+
+.works-cta-text {
+  margin: 0 0 0.75rem;
+
+  color: #666666;
+
+  font-family:
+    var(--font-serif),
+    Georgia,
+    serif;
+
+  font-size: 16px;
+  line-height: 1.45;
+  font-style: italic;
+}
+
+/* Link */
+
+.works-cta-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  padding-bottom: 0.3rem;
+
+  color: #111111;
+
+  border-bottom: 1px solid #111111;
+
+  font-family:
+    var(--font-sans),
+    Arial,
+    sans-serif;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  transition:
+    color 300ms ease,
+    border-color 300ms ease;
+}
+
+.works-cta-link:hover {
+  color: #d4af37;
+  border-color: #d4af37;
+}
+
+/* =========================================================
+   DIAGONAL GRID
+   ========================================================= */
+
 .diagonal-grid-container {
   transform: skewY(-5deg);
+
   overflow: hidden;
+
   margin: 4rem 0;
 }
+
 .diagonal-grid-inner {
   transform: skewY(5deg);
+
   display: grid;
+
   gap: 1rem;
 }
 
-/* ================================
+
+/* =========================================================
    SELECTION
-   ================================ */
+   ========================================================= */
 
 ::selection {
   background: #d4af37;
+
   color: #ffffff;
 }
 
-/* ================================
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+
+  .hero-image-item {
+    height: 300px;
+  }
+
+  .hero-image-offset {
+    margin-top: 38px;
+  }
+
+
+  /* -------------------------------------------------------
+     RECENT WORKS
+     ------------------------------------------------------- */
+
+  .works-section {
+    min-height: 950px;
+  }
+
+  .recent-works-header {
+    padding-top: 90px;
+
+    padding-bottom: 70px;
+  }
+
+  .recent-works-title {
+    font-size: 48px;
+  }
+
+  .samples-container {
+    top: 280px;
+
+    width: 175vw;
+
+    height: 600px;
+  }
+
+  .work-sample {
+    width: 280px;
+
+    height: 330px;
+  }
+
+  .works-cta {
+    height: 270px;
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+   ========================================================= */
+
+@media (min-width: 1025px) {
+
+  .recent-works-title {
+    font-size: 56px;
+  }
+}
+
+
+/* =========================================================
    MOBILE
-   ================================ */
+   ========================================================= */
 
 @media (max-width: 768px) {
+
   .py-section {
     padding-top: 5rem;
+
     padding-bottom: 5rem;
   }
+
+
+  /* -------------------------------------------------------
+     HERO
+     ------------------------------------------------------- */
+
+  .hero-concept {
+    gap: 0.4rem;
+  }
+
+  .hero-image-item {
+    height: 220px;
+  }
+
+  .hero-image-offset {
+    margin-top: 28px;
+  }
+
+
+  /* -------------------------------------------------------
+     RECENT WORKS
+     ------------------------------------------------------- */
+
+  .works-section {
+    min-height: 750px;
+  }
+
+  .recent-works-header {
+    padding-top: 70px;
+
+    padding-bottom: 50px;
+  }
+
+  .recent-works-label {
+    margin-bottom: 16px;
+
+    font-size: 10px;
+  }
+
+  .recent-works-title {
+    font-size: 34px;
+  }
+
+  .samples-container {
+    top: 240px;
+
+    width: 220vw;
+
+    height: 420px;
+
+    transform:
+      translateX(-50%)
+      rotate(-12deg);
+  }
+
+  .sample-set {
+    gap: 1rem;
+
+    padding: 0.5rem 0;
+  }
+
+  .work-sample {
+    width: 180px;
+
+    height: 220px;
+  }
+
+  .works-cta {
+  right: 16px;
+  bottom: 16px;
+}
+
+.works-cta-card {
+  width: 210px;
+  padding: 1rem 1.1rem;
+  border-radius: 15px;
+}
+
+.works-cta-text {
+  margin-bottom: 0.6rem;
+  font-size: 14px;
+}
+
+.works-cta-link {
+  font-size: 9px;
+  gap: 0.4rem;
+}
 }

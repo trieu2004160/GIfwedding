@@ -35,10 +35,10 @@ export default function Testimonials() {
           </p>
 
           <h2 className="text-[#111111] text-[40px] md:text-[56px] font-serif font-light leading-[1.1] mb-7">
-            Những Câu Chuyện
+            Về cảm xúc để lại khi 
             <br />
             <em className="italic text-gold">
-              Được Lưu Giữ
+              Làm việc với GIF Wedding
             </em>
           </h2>
         </div>
