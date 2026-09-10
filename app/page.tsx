@@ -1,4 +1,7 @@
+
 "use client";
+
+import Link from "next/link";
 
 import Navbar from "@/components/Navbar";
 import HeroCarousel, {
@@ -13,112 +16,93 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
-
 /* =========================================================
    HERO — 16 IMAGES / 4 CONCEPTS
    ========================================================= */
 
 const heroImages: HeroImage[] = [
-
-  // ───────────── CONCEPT 01 ─────────────
+  /* ===================== CONCEPT 01 ===================== */
 
   {
     src: "/hero_wedding.jpg",
     alt: "GIF Wedding Film - Concept 01",
   },
-
   {
     src: "/gallery_1.jpg",
     alt: "GIF Wedding - Concept 01",
   },
-
   {
     src: "/gallery_2.jpg",
     alt: "GIF Wedding - Concept 01",
   },
-
   {
     src: "/gallery_3.jpg",
     alt: "GIF Wedding - Concept 01",
   },
 
-
-  // ───────────── CONCEPT 02 ─────────────
+  /* ===================== CONCEPT 02 ===================== */
 
   {
     src: "/hero_wedding_2.jpg",
     alt: "GIF Wedding Film - Concept 02",
   },
-
   {
     src: "/gallery_4.jpg",
     alt: "GIF Wedding - Concept 02",
   },
-
   {
     src: "/gallery_5.jpg",
     alt: "GIF Wedding - Concept 02",
   },
-
   {
     src: "/gallery_6.jpg",
     alt: "GIF Wedding - Concept 02",
   },
 
-
-  // ───────────── CONCEPT 03 ─────────────
+  /* ===================== CONCEPT 03 ===================== */
 
   {
     src: "/hero_wedding_3.jpg",
     alt: "GIF Wedding Film - Concept 03",
   },
-
   {
     src: "/gallery_7.jpg",
     alt: "GIF Wedding - Concept 03",
   },
-
   {
     src: "/gallery_8.jpg",
     alt: "GIF Wedding - Concept 03",
   },
-
   {
     src: "/gallery_9.jpg",
     alt: "GIF Wedding - Concept 03",
   },
 
-
-  // ───────────── CONCEPT 04 ─────────────
+  /* ===================== CONCEPT 04 ===================== */
 
   {
     src: "/hero_wedding_4.jpg",
     alt: "GIF Wedding Film - Concept 04",
   },
-
   {
     src: "/gallery_10.jpg",
     alt: "GIF Wedding - Concept 04",
   },
-
   {
     src: "/gallery_11.jpg",
     alt: "GIF Wedding - Concept 04",
   },
-
   {
     src: "/gallery_12.jpg",
     alt: "GIF Wedding - Concept 04",
   },
 ];
 
-
 /* =========================================================
-   HOME
+   HOME PAGE
    ========================================================= */
 
 export default function Home() {
-
   return (
     <>
       {/* ===================================================
@@ -127,18 +111,15 @@ export default function Home() {
 
       <Navbar />
 
-
       <main className="pt-20">
-
-
         {/* =================================================
             HERO
             ================================================= */}
 
         <section className="py-section text-center">
+          {/* ---------- HERO TEXT ---------- */}
 
           <div className="px-4">
-
             <p
               className="
                 text-xs
@@ -152,7 +133,6 @@ export default function Home() {
               Welcome To
             </p>
 
-
             <h1
               className="
                 font-serif
@@ -165,56 +145,55 @@ export default function Home() {
               GIF Wedding Film
             </h1>
 
-
             <h2
               className="
-    font-serif
-    text-3xl
-    md:text-5xl
-    italic
-    text-gray-600
-    mb-3
-  "
+                font-serif
+                text-3xl
+                md:text-5xl
+                italic
+                text-gray-600
+                mb-3
+              "
             >
               Your Wedding Story, Beautifully Told
             </h2>
 
             <p
               className="
-    font-serif
-    text-sm
-    md:text-base
-    text-gray-500
-    mb-8
-  "
+                font-serif
+                text-sm
+                md:text-base
+                text-gray-500
+                mb-8
+              "
             >
-              Câu chuyện tình yêu của bạn, được kể bằng những thước phim đầy cảm xúc.
+              Câu chuyện tình yêu của bạn, được kể bằng những thước phim đầy
+              cảm xúc.
             </p>
 
-            <a
-              href="#works"
+            {/* ---------- PORTFOLIO LINK ---------- */}
+
+            <Link
+              href="/works"
               className="
-    inline-block
-    text-brand
-    text-sm
-    font-semibold
-    uppercase
-    tracking-wider
-    border-b-2
-    border-brand
-    pb-1
-    hover:text-brand-hover
-    hover:border-brand-hover
-    transition-colors
-    mb-12
-  "
+                inline-block
+                text-brand
+                text-sm
+                font-semibold
+                uppercase
+                tracking-wider
+                border-b-2
+                border-brand
+                pb-1
+                hover:text-brand-hover
+                hover:border-brand-hover
+                transition-colors
+                mb-12
+              "
             >
               See our Portfolio
-            </a>
-
-
+            </Link>
           </div>
-
 
           {/* =================================================
               HERO CAROUSEL
@@ -232,10 +211,7 @@ export default function Home() {
           >
             <HeroCarousel images={heroImages} />
           </div>
-
         </section>
-
-
 
         {/* =================================================
             ABOUT
@@ -243,15 +219,11 @@ export default function Home() {
 
         <About />
 
-
-
         {/* =================================================
             SERVICES
             ================================================= */}
 
         <Services />
-
-
 
         {/* =================================================
             RECENT WORKS
@@ -259,15 +231,11 @@ export default function Home() {
 
         <RecentWorks />
 
-
-
         {/* =================================================
             GALLERY
             ================================================= */}
 
         <Gallery />
-
-
 
         {/* =================================================
             TESTIMONIALS
@@ -275,17 +243,12 @@ export default function Home() {
 
         <Testimonials />
 
-
-
         {/* =================================================
             CONTACT
             ================================================= */}
 
         <Contact />
-
       </main>
-
-
 
       {/* ===================================================
           FOOTER

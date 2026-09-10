@@ -9,9 +9,13 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 60);
+    const onScroll = () => {
+      setScrolled(window.scrollY > 60);
+    };
 
-    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("scroll", onScroll, {
+      passive: true,
+    });
 
     return () => {
       window.removeEventListener("scroll", onScroll);
@@ -31,6 +35,29 @@ export default function Navbar() {
     document.body.style.overflow = next ? "hidden" : "";
   };
 
+  const navigation = [
+    {
+      href: "/#about",
+      label: "Về GIF Wedding",
+    },
+    {
+      href: "/#services",
+      label: "Dịch Vụ",
+    },
+    {
+      href: "/#gallery",
+      label: "Phóng Sự Cưới",
+    },
+    {
+      href: "/#testimonials",
+      label: "Khách Hàng",
+    },
+    {
+      href: "/#contact",
+      label: "Liên Hệ",
+    },
+  ];
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-400 ease-in-out ${
@@ -40,59 +67,162 @@ export default function Navbar() {
       }`}
       id="navbar"
     >
-      <div className="max-w-7xl mx-auto px-5 md:px-8 lg:px-12 flex items-center gap-4 md:gap-12">
+      <div
+        className="
+          max-w-7xl
+          mx-auto
+          px-5
+          md:px-8
+          lg:px-12
+          flex
+          items-center
+          gap-4
+          md:gap-12
+        "
+      >
+        {/* =================================================
+            LOGO
+            ================================================= */}
 
-        {/* Logo */}
         <Link
-          href="#"
+          href="/"
           onClick={closeMenu}
-          className="font-serif text-[22px] font-semibold tracking-[0.2em] shrink-0 text-black transition-colors duration-400"
+          className="
+            font-serif
+            text-[22px]
+            font-semibold
+            tracking-[0.2em]
+            shrink-0
+            text-black
+            transition-colors
+            duration-400
+          "
           id="nav-logo-link"
         >
           GIF WEDDING
         </Link>
 
-        {/* Navigation */}
+        {/* =================================================
+            NAVIGATION
+            ================================================= */}
+
         <ul
           className={`flex-col md:flex-row items-center justify-center gap-10 md:gap-9 fixed md:static inset-0 z-[999] md:z-auto ${
             menuOpen ? "flex" : "hidden md:flex"
           } ml-auto list-none bg-white md:bg-transparent`}
           id="nav-links"
         >
-          {[
-            ["#about", "Về GIF Wedding"],
-            ["#services", "Dịch Vụ"],
-            ["#gallery", "Phóng Sự Cưới"],
-            ["#testimonials", "Khách Hàng"],
-            ["#contact", "Liên Hệ"],
-          ].map(([href, label]) => (
-            <li key={href}>
-              <a
-                href={href}
+          {navigation.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
                 onClick={closeMenu}
-                className="font-ui text-[20px] md:text-[14px] font-normal text-black md:text-black/70 transition-colors duration-400 relative group"
+                className="
+                  font-ui
+                  text-[20px]
+                  md:text-[14px]
+                  font-normal
+                  text-black
+                  md:text-black/70
+                  transition-colors
+                  duration-400
+                  relative
+                  group
+                "
               >
-                {label}
+                {item.label}
 
-                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-[#d4af37] transition-all duration-400 group-hover:w-full hidden md:block" />
-              </a>
+                <span
+                  className="
+                    absolute
+                    -bottom-1
+                    left-0
+                    w-0
+                    h-[1px]
+                    bg-[#d4af37]
+                    transition-all
+                    duration-400
+                    group-hover:w-full
+                    hidden
+                    md:block
+                  "
+                />
+              </Link>
             </li>
           ))}
+
+          {/* =================================================
+              WORKS
+              ================================================= */}
+
+          <li>
+            <Link
+              href="/works"
+              onClick={closeMenu}
+              className="
+                font-ui
+                text-[20px]
+                md:text-[14px]
+                font-normal
+                text-black
+                md:text-black/70
+                transition-colors
+                duration-400
+                relative
+                group
+              "
+            >
+              Portfolio
+
+              <span
+                className="
+                  absolute
+                  -bottom-1
+                  left-0
+                  w-0
+                  h-[1px]
+                  bg-[#d4af37]
+                  transition-all
+                  duration-400
+                  group-hover:w-full
+                  hidden
+                  md:block
+                "
+              />
+            </Link>
+          </li>
         </ul>
 
-        {/* CTA */}
-        <a
-          href="#contact"
+        {/* =================================================
+            CTA
+            ================================================= */}
+
+        <Link
+          href="/#contact"
           onClick={closeMenu}
           className="btnPrimary hidden md:inline-flex"
           id="nav-cta"
         >
           Đặt Lịch
-        </a>
+        </Link>
 
-        {/* Mobile Hamburger */}
+        {/* =================================================
+            MOBILE HAMBURGER
+            ================================================= */}
+
         <button
-          className="flex md:hidden flex-col gap-[5px] bg-transparent border-none cursor-pointer p-1 ml-auto z-[1000]"
+          className="
+            flex
+            md:hidden
+            flex-col
+            gap-[5px]
+            bg-transparent
+            border-none
+            cursor-pointer
+            p-1
+            ml-auto
+            z-[1000]
+          "
           id="nav-hamburger"
           aria-label={menuOpen ? "Đóng menu" : "Mở menu"}
           aria-expanded={menuOpen}
@@ -108,9 +238,7 @@ export default function Navbar() {
 
           <span
             className={`block w-6 h-[1.5px] transition-all duration-400 ${
-              menuOpen
-                ? "bg-black opacity-0"
-                : "bg-black"
+              menuOpen ? "bg-black opacity-0" : "bg-black"
             }`}
           />
 
@@ -122,7 +250,6 @@ export default function Navbar() {
             }`}
           />
         </button>
-
       </div>
     </nav>
   );
